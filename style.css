@@ -6,7 +6,12 @@ body{
   background-color:#66ccff;
   padding: 20px;
   margin: 10px;
+  border-radius: 15px;
 }
 .renderItem:hover{
   background-color:white;
+}
+#displayGrade{
+  background-color:#428bca;
+  border-radius: 15px;
 }

@@ -36,28 +36,72 @@ question4.displayEm();
 var question5 = new Question(5, quizData[5].question, quizData[5].choiceA.answer, quizData[5].choiceA.correct, quizData[5].choiceB.answer, quizData[5].choiceB.correct, quizData[5].choiceC.answer, quizData[5].choiceC.correct, quizData[5].choiceD.answer, quizData[5].choiceD.correct, quizData[5].value);
 question5.displayEm();
 
-var pointArray = [];
+var a = 1;
+var finalPoints = 0;
 var ans1 = false;
 var ans2 = false;
 var ans3 = false;
 var ans4 = false;
 var ans5 = false;
 
-logic = () => {
-  for(var q = 1; q <= 5; q++){
+step1 = () => {
+  for(var q = 1; q <= 5; q++) {
     if (document.getElementById('selA'+q).checked) {
-      ans${q} = document.getElementById('selA'+q).value;
+      this["ans"+q] = document.getElementById('selA'+q).value;
     }else if (document.getElementById('selB'+q).checked) {
-      ans${q} = document.getElementById('selB'+q).value;
+      this["ans"+q] = document.getElementById('selB'+q).value;
     }else if (document.getElementById('selC'+q).checked) {
-      ans${q} = document.getElementById('selC'+q).value;
+      this["ans"+q] = document.getElementById('selC'+q).value;
     }else if (document.getElementById('selD'+q).checked) {
-      ans${q} = document.getElementById('selD'+q).value;
-    }else {console.log("error");}
+      this["ans"+q] = document.getElementById('selD'+q).value;
+    }else {console.log("error");};
   };
-  console.log(ans1);
-  console.log(ans2);
-  console.log(ans3);
-  console.log(ans4);
-  console.log(ans5);
+};
+step2 = () => {
+  while(a <= 5){
+    console.log(this["ans"+a]);
+    if (this["ans"+a] == "true"){
+      finalPoints += this["question"+a].points;
+      document.getElementById("placeholder"+a).style.backgroundColor = "#5cb85c";
+    }
+    else {
+      finalPoints += 0;
+      document.getElementById("placeholder"+a).style.backgroundColor = "#d9534f";
+    };
+    a++;
+  };
+  console.log(finalPoints);
 }
+step3 = () => {
+    let inputOne = 100;
+    let outputOne = "A";
+    inputOne = (finalPoints / 25) * 100;
+    if(inputOne >= 90) {
+      outputOne = "A";
+    }  else if(inputOne >= 80) {
+      outputOne = "B";
+    }  else if(inputOne >= 70) {
+      outputOne = "C";
+    }  else if(inputOne >= 60) {
+      outputOne = "D";
+    }  else {
+      outputOne = "F";
+    }
+    return document.getElementById("finalGrade").innerHTML = `
+      <div id="displayGrade">
+      <h3>Your score was </h3><h2>${finalPoints} </h2><h3>out of a possible</h3><h2> 25</h2>
+        <h3>Your percentage was </h3><h2>${inputOne}%</h2>
+        <h3>this receives a final grade of</h3><h1>${outputOne}</h1>
+      </div>
+      `;
+};
+logic = () => {
+  step1();
+  step2();
+  step3();
+  document.documentElement.scrollTop = 0;
+};
+
+reclear = () => {
+  location.reload();
+};
