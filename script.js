@@ -89,6 +89,7 @@ step3 = () => {
     }
     return document.getElementById("finalGrade").innerHTML = `
       <div id="displayGrade">
+        <h1>Results:</h1>
       <h3>Your score was </h3><h2>${finalPoints} </h2><h3>out of a possible</h3><h2> 25</h2>
         <h3>Your percentage was </h3><h2>${inputOne}%</h2>
         <h3>this receives a final grade of</h3><h1>${outputOne}</h1>

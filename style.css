@@ -9,9 +9,34 @@ body{
   border-radius: 15px;
 }
 .renderItem:hover{
-  background-color:white;
+  background-color:#e7e7e7;
 }
 #displayGrade{
   background-color:#428bca;
+  border-radius: 15px;
+}
+#subButt {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#cleaRefresh {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#title {
+  background-color:#e7e7e7;
   border-radius: 15px;
 }
