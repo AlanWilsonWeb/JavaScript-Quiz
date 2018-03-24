@@ -14,17 +14,14 @@ class Question {
   }
   displayEm() {
     const markup = `
-  <div class="quiz"><h3>Question ${this.index}: ${this.quest}</h3>
-  <h4>A) ${this.optionA}</h4>
-  <h4>B) ${this.optionB}</h4>
-  <h4>C) ${this.optionC}</h4>
-  <h4>D) ${this.optionD}</h4>
+  <div id="quizQuestion${this.index}"><h3>Question ${this.index}: ${this.quest}</h3>
+  <div class="renderItem"><h4>A) ${this.optionA}</h4><input name="radioq${this.index}" id="selA${this.index}" value=${this.aBool} type="radio"></div>
+  <div class="renderItem"><h4>B) ${this.optionB}</h4><input name="radioq${this.index}" id="selB${this.index}" value=${this.bBool} type="radio"></div>
+  <div class="renderItem"><h4>C) ${this.optionC}</h4><input name="radioq${this.index}" id="selC${this.index}" value=${this.cBool} type="radio"></div>
+  <div class="renderItem"><h4>D) ${this.optionD}</h4><input name="radioq${this.index}" id="selD${this.index}" value=${this.dBool} type="radio"></div>
   </div>
   `;
   document.getElementById(`placeholder${this.index}`).innerHTML = markup;
-  }
-  logic() {
-    
   }
 };
 
@@ -38,3 +35,29 @@ var question4 = new Question(4, quizData[4].question, quizData[4].choiceA.answer
 question4.displayEm();
 var question5 = new Question(5, quizData[5].question, quizData[5].choiceA.answer, quizData[5].choiceA.correct, quizData[5].choiceB.answer, quizData[5].choiceB.correct, quizData[5].choiceC.answer, quizData[5].choiceC.correct, quizData[5].choiceD.answer, quizData[5].choiceD.correct, quizData[5].value);
 question5.displayEm();
+
+var pointArray = [];
+var ans1 = false;
+var ans2 = false;
+var ans3 = false;
+var ans4 = false;
+var ans5 = false;
+
+logic = () => {
+  for(var q = 1; q <= 5; q++){
+    if (document.getElementById('selA'+q).checked) {
+      ans${q} = document.getElementById('selA'+q).value;
+    }else if (document.getElementById('selB'+q).checked) {
+      ans${q} = document.getElementById('selB'+q).value;
+    }else if (document.getElementById('selC'+q).checked) {
+      ans${q} = document.getElementById('selC'+q).value;
+    }else if (document.getElementById('selD'+q).checked) {
+      ans${q} = document.getElementById('selD'+q).value;
+    }else {console.log("error");}
+  };
+  console.log(ans1);
+  console.log(ans2);
+  console.log(ans3);
+  console.log(ans4);
+  console.log(ans5);
+}

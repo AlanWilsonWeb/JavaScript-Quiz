@@ -1,3 +1,12 @@
 body{
   text-align: center;
+  font-family: sans-serif;
+}
+.questBack{
+  background-color:#66ccff;
+  padding: 20px;
+  margin: 10px;
+}
+.renderItem:hover{
+  background-color:white;
 }
